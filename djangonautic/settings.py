@@ -79,12 +79,9 @@ WSGI_APPLICATION = 'djangonautic.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+# DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
+
 DATABASES = {
-    'default': dj_database_url.config(
-        default='postgres://flmcdqwgyjhkkr:70026df7479ebe046f85da4f76a2e021bdccec817efe372ee6cb383bca10b1bc@ec2-107-21-205-128.compute-1.amazonaws.com:5432/dc7o201mflhgnb'
-    )
-}
-""" DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'djangonautic',
@@ -93,7 +90,13 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '',
     }
-} """
+}
+print('DATABASE_URL', os.environ.get('DATABASE_URL'))
+DATABASES = {
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL')
+    )
+}
 
 
 # Password validation
