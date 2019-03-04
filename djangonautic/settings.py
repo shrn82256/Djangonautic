@@ -79,19 +79,6 @@ WSGI_APPLICATION = 'djangonautic.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-# DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'djangonautic',
-        'USER': 'djangonauticuser',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
-print('DATABASE_URL', os.environ.get('DATABASE_URL'))
 DATABASES = {
     'default': dj_database_url.config(
         default=os.environ.get('DATABASE_URL')
