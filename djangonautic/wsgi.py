@@ -14,3 +14,7 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'djangonautic.settings')
 
 application = get_wsgi_application()
+
+# from djangonautic.wsgi import DjangonauticApplication
+
+# application = DjangonauticApplication(application)
